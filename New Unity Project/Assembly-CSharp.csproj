@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Procedural2DArray.cs" />
+     <Compile Include="Assets\Scripts\Tile.cs" />
+     <Compile Include="Assets\Scripts\TileHelper.cs" />
+     <Compile Include="Assets\Scripts\TilePosition.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
