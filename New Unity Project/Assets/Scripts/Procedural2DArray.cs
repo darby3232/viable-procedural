@@ -84,11 +84,12 @@ public class Procedural2DArray : MonoBehaviour
 		if (isOutOfBounds (xPos, yPos)) {
 			return; 
 		}
+
 		//create the tile - in the tile 
 		Tile tile = new Tile (xPos, yPos, TileHelper.TileType.Grass); 
 
-		//DETERMINE THE TILE TYPE now that we have access to the methods of the tile class
-		determineInitialTileType (tile);
+		//MUST CALL THIS AFTER WE CREATE THE TILE TO GET THE TILE Type
+		tile.setTileType (determineInitialTileType (tile));
 
 		//add the tile to the world array so I can know the space types of each block in the future and create the world
 		worldArray [xPos] [yPos] = tile; 
@@ -125,18 +126,52 @@ public class Procedural2DArray : MonoBehaviour
 		//so check each of the surrounding types to try and determine the tile type
 		List<TileHelper.TileType> surroundingTypes = new List<TileHelper.TileType> (); 
 		//add each surrounding type to a list
-		surroundingTypes.Add (tile.getNorthernTile.getTileType ());
-		surroundingTypes.Add (tile.getNorthEasternTile.getTileType ());
-		surroundingTypes.Add (tile.getEasternTile.getTileType ());
-		surroundingTypes.Add (tile.getSouthEasternTile.getTileType ());
-		surroundingTypes.Add (tile.getSouthernTile.getTileType ());
-		surroundingTypes.Add (tile.getSouthWesternTile.getTileType ());
-		surroundingTypes.Add (tile.getWesternTile.getTileType ());
-		surroundingTypes.Add (tile.getNorthWesternTile.getTileType ());
+		surroundingTypes.Add (tile.getNorthernTile ().getTileType ());
+		surroundingTypes.Add (tile.getNorthEasternTile ().getTileType ());
+		surroundingTypes.Add (tile.getEasternTile ().getTileType ());
+		surroundingTypes.Add (tile.getSouthEasternTile ().getTileType ());
+		surroundingTypes.Add (tile.getSouthernTile ().getTileType ());
+		surroundingTypes.Add (tile.getSouthWesternTile ().getTileType ());
+		surroundingTypes.Add (tile.getWesternTile ().getTileType ());
+		surroundingTypes.Add (tile.getNorthWesternTile ().getTileType ());
 
+		//count each type of tile types around
+		float grassCount = 0; 
+		float rockCount = 0; 
+		float waterCount = 0; 
 		foreach (TileHelper.TileType type in surroundingTypes) {
-			
+
+			float randomModifier = Random.Range (0.0f, 1.0f);
+
+			//if there is a type
+			if (type == TileHelper.TileType.Grass) {
+				grassCount += randomModifier; 
+			} else if (type == TileHelper.TileType.Rock) {
+				rockCount += randomModifier;
+			} else if (type == TileHelper.TileType.Water) {
+				waterCount += randomModifier;
+			}			
+
+			//else type is probably null and we must add to a random type
+			int randomTileType = Random.Range (1, 3);
+			if (randomTileType == 1) {
+				grassCount += randomModifier; 
+			} else if (randomTileType == 2) {
+				rockCount += randomModifier; 
+			} else if (randomTileType) {
+				waterCount += randomModifier; 
+			}
 		}
+
+		//Now determine the type to return, the one with the highest value
+		if (grassCount > rockCount && grassCount > waterCount) {
+			return TileHelper.TileType.Grass; 
+		} else if (rockCount > waterCount && rockCount > grassCount) {
+			return TileHelper.TileType.Rock; 
+		} else if (waterCount > rockCount && waterCount > grassCount) {
+			return TileHelper.TileType.Water; 
+		}
+
 	}
 
 	private bool isOutOfBounds (int xPos, int yPos)

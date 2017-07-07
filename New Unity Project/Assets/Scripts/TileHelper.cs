@@ -7,7 +7,7 @@ public class TileHelper : MonoBehaviour
 
 	public enum TileType
 	{
-		Mountain,
+		Rock,
 		Water,
 		Grass}
 

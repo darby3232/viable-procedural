@@ -16,6 +16,15 @@ public class Tile : MonoBehaviour
 		this.type = type; 
 	}
 
+	//TODO
+	//must be called finally
+	public void createTileObject ()
+	{
+
+
+
+	}
+
 
 	public Tile getNorthernTile ()
 	{
