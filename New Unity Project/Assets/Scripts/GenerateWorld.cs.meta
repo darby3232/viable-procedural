@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 0c6a5eedc528afa44a111f96b3ceeb14
+timeCreated: 1511907137
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - forest1: {instanceID: 0}
+  - forest2: {instanceID: 0}
+  - forest3: {instanceID: 0}
+  - forest4: {instanceID: 0}
+  - forest5: {instanceID: 0}
+  - forest6: {instanceID: 0}
+  - forest7: {instanceID: 0}
+  - forest8: {instanceID: 0}
+  - grass1: {instanceID: 0}
+  - water1: {instanceID: 0}
+  - water2: {instanceID: 0}
+  - water3: {instanceID: 0}
+  - water4: {instanceID: 0}
+  - water5: {instanceID: 0}
+  - water6: {instanceID: 0}
+  - water7: {instanceID: 0}
+  - water8: {instanceID: 0}
+  - water9: {instanceID: 0}
+  - water10: {instanceID: 0}
+  - water11: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
