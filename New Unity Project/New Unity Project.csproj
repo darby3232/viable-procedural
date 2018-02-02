@@ -78,10 +78,6 @@
     <Compile Include="Assets\Scripts\FPSInput.cs" />
     <Compile Include="Assets\Scripts\GenerateWorld.cs" />
     <Compile Include="Assets\Scripts\MouseLook.cs" />
-    <Compile Include="Assets\Scripts\Procedural2DArray.cs" />
-    <Compile Include="Assets\Scripts\Tile.cs" />
-    <Compile Include="Assets\Scripts\TileHelper.cs" />
-    <Compile Include="Assets\Scripts\TilePosition.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
